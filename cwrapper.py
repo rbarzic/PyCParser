@@ -3,8 +3,8 @@
 # code under BSD 2-Clause License
 
 import ctypes
-from . import cparser
-from .cparser_utils import *
+import cparser
+from cparser_utils import *
 
 
 class CStateDictWrapper:

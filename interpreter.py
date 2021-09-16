@@ -16,13 +16,13 @@ import inspect
 from weakref import ref, WeakValueDictionary
 from collections import OrderedDict
 
-from . import cparser
-from .cparser import *
-from .cwrapper import CStateWrapper
-from .cparser_utils import long, unicode
-from .interpreter_utils import ast_bin_op_to_func
-from . import goto
-from .sortedcontainers.sortedset import SortedSet
+import cparser
+from cparser import *
+from cwrapper import CStateWrapper
+from cparser_utils import long, unicode
+from interpreter_utils import ast_bin_op_to_func
+import goto
+from sortedcontainers.sortedset import SortedSet
 
 PY2 = sys.version_info[0] == 2
 PY3 = sys.version_info[0] >= 3
@@ -1799,7 +1799,7 @@ class WrappedValues:
 def _unparse(pyAst):
     from six import StringIO
     output = StringIO()
-    from .py_demo_unparse import Unparser
+    from py_demo_unparse import Unparser
     Unparser(pyAst, file=output)
     output.write("\n")
     return output.getvalue()

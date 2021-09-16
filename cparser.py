@@ -11,10 +11,10 @@ import typing
 import ctypes
 import _ctypes
 from inspect import isclass
-from .cparser_utils import unicode, long, unichr
+from cparser_utils import unicode, long, unichr
 
 if typing.TYPE_CHECKING:
-    from . import globalincludewrappers
+    import globalincludewrappers
 
 SpaceChars = " \t"
 LowercaseLetterChars = "abcdefghijklmnopqrstuvwxyz"
@@ -588,7 +588,7 @@ class State(object):
 
     def autoSetupGlobalIncludeWrappers(self):
         if self._global_include_wrapper: return
-        from .globalincludewrappers import Wrapper
+        from globalincludewrappers import Wrapper
         self._global_include_wrapper = Wrapper(self)
         self._global_include_wrapper.install()
 
